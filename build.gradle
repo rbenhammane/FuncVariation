@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'org.web3j' version '4.7.0'
+}
+
+group 'com.eulith.co.variation'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
+    testImplementation 'org.web3j:web3j-unit:4.7.0'
+}
+
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events 'passed', 'skipped', 'failed'
+    }
+}
+
+web3j {
+    generatedPackageName = 'com.eulith.co.variation'
+}
+
+solidity {
+    executable = 'solc'
+    version = '0.8.17'
+}
